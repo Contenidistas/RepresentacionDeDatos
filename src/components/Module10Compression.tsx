@@ -135,13 +135,50 @@ export const Module10Compression: React.FC<Module10CompressionProps> = ({ onComp
                   <li style={{ marginBottom: '0.5rem' }}>
                     <strong>Compresión SIN pérdida:</strong> Reduce el peso agrupando datos redundantes sin perder ningún detalle. Es ideal para textos y programas (ej: ZIP, PNG).
                   </li>
-                  <li>
+                  <li style={{ marginBottom: '0.5rem' }}>
                     <strong>Algoritmo RLE (Run Length Encoding):</strong> Agrupa elementos repetidos seguidos indicando la cantidad. En lugar de guardar `BBBBBBNNNNNN` (12 bits), guarda `6B6N` (indicando 6 Blancos y 6 Negros).
                   </li>
                   <li>
                     <strong>Compresión CON pérdida:</strong> Descarta detalles visuales o auditivos que el cerebro humano casi no percibe (ej: JPEG, MP3). No se puede revertir.
                   </li>
                 </ul>
+
+                {/* Ejemplo Simulado de Compresión */}
+                <div style={{ marginTop: '1.2rem', paddingTop: '1rem', borderTop: '1px dashed var(--border-color)' }}>
+                  <strong style={{ color: 'var(--color-alert)' }}>🔍 Ejemplos Reales de Compresión en tu Vida Diaria</strong>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.75rem' }}>
+                    
+                    <div style={{ padding: '0.75rem', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                      <strong style={{ color: 'var(--color-accent)' }}>🤐 Sin Pérdida: El método ZIP (Algoritmo Lempel-Ziv)</strong>
+                      <p style={{ marginTop: '0.25rem', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                        Cuando comprimís un documento de texto a <strong>.zip</strong>, la computadora busca palabras repetidas y arma un "diccionario".
+                      </p>
+                      <code style={{ display: 'block', backgroundColor: 'var(--bg-input)', padding: '6px', borderRadius: '4px', marginTop: '0.5rem', fontSize: '0.85rem', fontFamily: 'var(--font-mono)' }}>
+                        Texto original: "el perro corre y el perro juega"<br />
+                        Diccionario: [1 = "el perro"]<br />
+                        Texto comprimido: "[1] corre y [1] juega"
+                      </code>
+                      <p style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                        Al descomprimir el archivo, se reemplaza la referencia [1] por la palabra original. No se perdió ni una sola letra.
+                      </p>
+                    </div>
+
+                    <div style={{ padding: '0.75rem', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                      <strong style={{ color: 'var(--color-accent)' }}>🎧 Con Pérdida: ¿Por qué un MP3 pesa 10 veces menos que un CD?</strong>
+                      <p style={{ marginTop: '0.25rem', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                        El formato <strong>MP3</strong> usa <strong>psicoacústica</strong> (el estudio de cómo el cerebro escucha) para borrar información inaudible:
+                      </p>
+                      <ul style={{ paddingLeft: '1.2rem', margin: '0.5rem 0', fontSize: '0.85rem', lineHeight: '1.4' }}>
+                        <li><strong>Límite de audición:</strong> Borra tonos muy agudos o muy graves que el oído humano no puede captar.</li>
+                        <li><strong>Enmascaramiento auditivo:</strong> Si suena un platillo de batería muy fuerte, y al mismo tiempo un sonido de guitarra muy suave de fondo, el cerebro se concentra en el platillo fuerte. El MP3 borra el sonido de la guitarra que de todos modos no vas a escuchar.</li>
+                      </ul>
+                      <p style={{ marginTop: '0.25rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                        Así, un tema musical de 40 MB en formato CD sin compresión se reduce a solo 4 MB en MP3.
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
               </div>
             )}
           </div>
